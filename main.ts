@@ -1,7 +1,8 @@
 radio.onReceivedValue(function (name, value) {
+    serial.writeValue(name, value)
     if (iRxCount > 5) {
         iRxCount = 0
-        serial.writeValue("RxStrength", radio.receivedPacket(RadioPacketProperty.SignalStrength) + 128)
+        serial.writeValue("distance", radio.receivedPacket(RadioPacketProperty.SignalStrength) + 128)
     } else {
         iRxCount += 1
     }
